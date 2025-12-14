@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Buscar Libros</h2>
+<form method="post">
+<input type="text" name="query" placeholder="Buscar por título">
+<button type="submit">Buscar</button>
+</form>
+
+{% if results %}
+<table>
+<tr><th>Título</th><th>Autor</th><th>Año</th></tr>
+{% for book in results %}
+<tr>
+<td>{{ book.title }}</td>
+<td>{{ book.author }}</td>
+<td>{{ book.year }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+{% endblock %}
